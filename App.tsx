@@ -1,13 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import RestaurantScreen from "./screens/RestaurantScreen";
+import MenuItem from "./screens/MenuItem";
 
 export default function App() {
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <StatusBar style="auto" />
-            <RestaurantScreen />
-        </SafeAreaView>
+        <SafeAreaProvider>
+            <SafeAreaView style={{ flex: 1 }}>
+                <StatusBar style="auto" />
+                <MenuItem />
+            </SafeAreaView>
+        </SafeAreaProvider>
     );
 }
