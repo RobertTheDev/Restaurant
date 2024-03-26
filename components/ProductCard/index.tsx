@@ -16,18 +16,31 @@ export default function ProductCard(props: {
 
     return (
         <Pressable
+            style={{
+                paddingHorizontal: 24,
+                gap: 16
+            }}
             onPress={() =>
                 navigation.navigate("Product", { productId: item.id })
             }
         >
-            <View style={{ width: "100%", aspectRatio: "4/3" }}>
+            <View
+                style={{
+                    width: "100%",
+                    aspectRatio: "4/3",
+                    borderRadius: 16,
+                    overflow: "hidden"
+                }}
+            >
                 <Image
                     style={{ width: "100%", height: "100%" }}
                     source={item.image.uri}
                 />
             </View>
             <View>
-                <Text>{item.name}</Text>
+                <Text style={{ fontSize: 18, fontWeight: "500" }}>
+                    {item.name}
+                </Text>
             </View>
         </Pressable>
     );

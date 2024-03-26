@@ -8,7 +8,7 @@ export default function HomeScreen() {
         <FlatList
             data={products}
             keyExtractor={(_product, index) => index.toString()}
-            contentContainerStyle={{ gap: 32 }}
+            contentContainerStyle={{ gap: 24, paddingVertical: 24 }}
             renderItem={({ item }) => {
                 return <ProductCard item={item} />;
             }}

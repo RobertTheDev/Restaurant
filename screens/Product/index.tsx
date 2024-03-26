@@ -20,7 +20,7 @@ export default function ProductScreen() {
 
     return (
         <ScrollView style={{ flex: 1 }} bounces={false}>
-            <View style={{ width: "100%", aspectRatio: "1/1" }}>
+            <View style={{ width: "100%", aspectRatio: "4/3" }}>
                 <Image
                     style={{ width: "100%", flex: 1 }}
                     source={product.image.uri}
