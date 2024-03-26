@@ -4,8 +4,10 @@ const paymentMethods = [
         createdAt: new Date(),
         customerId: "789",
         type: "credit_card",
+        cardholderName: "",
         cardNumber: "**** **** **** 1234",
-        expiryDate: "12/25",
+        expirationDate: "12/25",
+        securityCode: "",
         billingAddress: {
             addressId: "1",
             createdAt: new Date(),
