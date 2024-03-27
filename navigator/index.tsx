@@ -8,7 +8,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Pressable, Text } from "react-native";
 
 import AccountScreen from "../screens/Account";
+import AddAddressScreen from "../screens/AddAddress";
+import AddPaymentMethodScreen from "../screens/AddPaymentMethod";
+import BasketScreen from "../screens/Basket";
+import EditAccountScreen from "../screens/EditAccount";
 import HomeScreen from "../screens/Home";
+import MenuScreen from "../screens/Menu";
+import MenusScreen from "../screens/Menus";
+import NotFoundScreen from "../screens/NotFound";
+import OrderConfirmationScreen from "../screens/OrderConfirmation";
+import OrdersScreen from "../screens/Orders";
 import ProductScreen from "../screens/Product";
 
 const Stack = createNativeStackNavigator();
@@ -63,7 +72,7 @@ function HomeTabs() {
             />
             <Tab.Screen
                 name="MenuTabs"
-                component={HomeScreen}
+                component={MenusScreen}
                 options={{
                     tabBarButton: (props) => (
                         <TabButton props={props} title="Menu" />
@@ -72,7 +81,7 @@ function HomeTabs() {
             />
             <Tab.Screen
                 name="OrderTabs"
-                component={HomeScreen}
+                component={OrdersScreen}
                 options={{
                     tabBarButton: (props) => (
                         <TabButton props={props} title="Orders" />
@@ -100,7 +109,23 @@ function Navigator() {
                 screenOptions={{ headerShown: false }}
             >
                 <Stack.Screen name="Home" component={HomeTabs} />
+                <Stack.Screen name="Menu" component={MenuScreen} />
                 <Stack.Screen name="Product" component={ProductScreen} />
+                <Stack.Screen name="Basket" component={BasketScreen} />
+                <Stack.Screen
+                    name="AddPaymentMethod"
+                    component={AddPaymentMethodScreen}
+                />
+                <Stack.Screen name="AddAddress" component={AddAddressScreen} />
+                <Stack.Screen
+                    name="EditAccount"
+                    component={EditAccountScreen}
+                />
+                <Stack.Screen name="NotFound" component={NotFoundScreen} />
+                <Stack.Screen
+                    name="OrderConfirmation"
+                    component={OrderConfirmationScreen}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
