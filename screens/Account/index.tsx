@@ -1,62 +1,57 @@
+import { useNavigation } from "@react-navigation/native";
 import { Alert, FlatList, Pressable, Text, View } from "react-native";
 
-const accountMenuLinks = [
-    {
-        icon: "",
-        link: "",
-        name: "Update Account"
-    }
-];
+import accountLinks from "./accountLinks";
 
 export default function AccountScreen() {
+    const navigation = useNavigation();
+
     return (
-        <View
-            style={{
-                flexDirection: "column",
-                alignItems: "center",
-                padding: 32
-            }}
-        >
-            <View>
-                <Text>Sanjiv</Text>
-            </View>
-            <View>
-                <FlatList
-                    data={accountMenuLinks}
-                    keyExtractor={(_link, index) => index.toString()}
-                    renderItem={({ item }) => (
-                        <Pressable>
-                            <Text>{item.name}</Text>
-                        </Pressable>
-                    )}
-                />
-            </View>
-            <View>
+        <FlatList
+            ListHeaderComponent={() => (
+                <View>
+                    <Text>Sanjiv</Text>
+                </View>
+            )}
+            data={accountLinks}
+            keyExtractor={(_link, index) => index.toString()}
+            renderItem={({ item }) => (
                 <Pressable
                     onPress={() => {
-                        Alert.alert(
-                            "Sign out?",
-                            "You can always sign back in",
-                            [
-                                {
-                                    text: "Cancel",
-
-                                    onPress: () => {}
-                                },
-                                {
-                                    text: "Sign Out",
-                                    style: "destructive",
-                                    onPress: () => {}
-                                }
-                            ]
-                        );
+                        navigation.navigate(item.link);
                     }}
                 >
-                    <Text style={{ textDecorationLine: "underline" }}>
-                        Sign Out
-                    </Text>
+                    <Text>{item.name}</Text>
                 </Pressable>
-            </View>
-        </View>
+            )}
+            ListFooterComponent={() => (
+                <View>
+                    <Pressable
+                        onPress={() => {
+                            Alert.alert(
+                                "Sign out?",
+                                "You can always sign back in",
+                                [
+                                    {
+                                        text: "Cancel",
+
+                                        onPress: () => {}
+                                    },
+                                    {
+                                        text: "Sign Out",
+                                        style: "destructive",
+                                        onPress: () => {}
+                                    }
+                                ]
+                            );
+                        }}
+                    >
+                        <Text style={{ textDecorationLine: "underline" }}>
+                            Sign Out
+                        </Text>
+                    </Pressable>
+                </View>
+            )}
+        />
     );
 }
