@@ -11,7 +11,7 @@ function OrderItemCard({ item }: { item: IOrderItem }) {
     );
 }
 
-export default function OrdersScreen() {
+export default function OrderConfirmationScreen() {
     const customerId = "22";
 
     return (
