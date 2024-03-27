@@ -1,33 +1,37 @@
+import type IAllergy from "./Allergy";
+import type IIMage from "./Image";
+
+interface IIngredient {
+    icon: string;
+    ingredient: string;
+}
+
+interface IPrice {
+    amount: number;
+    currency: string;
+}
+
+interface IProductVariant {
+    quantity: number;
+    price: IPrice;
+    size: string;
+    totalSold: number;
+}
+
 export default interface IProduct {
+    // Default fields
     id: string;
     createdAt: Date;
-    quantity: number;
-    category: string;
+
+    // Foreign fields
     menuItemId: string;
+
+    // Custom fields
+    category: string;
     description: string;
-    tags: {
-        value: string;
-        icon: string;
-    }[];
-    reviews: {
-        userId: string;
-        rating: number;
-        comment: string;
-        date: Date;
-    }[];
-    totalReviews: number;
-    totalScore: number;
-    options: {
-        name: string;
-        price: number;
-    }[];
-    variants: string[];
-    prices: {
-        amount: number;
-        currency: string;
-        size: string;
-    };
-    promotionalMessage: string;
+    tags: string[];
+    variants: IProductVariant[];
+    promotionalMessage: string | null;
     availabilityStatus: string;
     nutrition: {
         calories: number;
@@ -39,20 +43,12 @@ export default interface IProduct {
         percentage: string;
         value: number;
     };
-    image: {
-        uri: string;
-        alt: string;
-    };
-    ingredients: {
-        icon: string;
-        ingredient: string;
-    }[];
+    image: IIMage;
+    ingredients: IIngredient[];
     heatLevel: {
         icon: string;
         level: number;
     };
     name: string;
-    status: string;
-    sizes: string[];
-    allergyWarnings: string[];
+    allergyWarnings: IAllergy[];
 }
