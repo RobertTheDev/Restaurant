@@ -15,8 +15,7 @@ const accountData = [
         favourites: {},
         email: "",
         phoneNumber: "",
-        password: "",
-        avatar: ""
+        password: ""
     }
 ];
 
