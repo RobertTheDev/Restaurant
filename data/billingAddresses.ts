@@ -5,7 +5,7 @@ const billingAddresses = [
         region: "CA",
         postalCode: "12345",
         country: "USA",
-        paymentMethodId: ""
+        paymentMethodId: "1"
     }
 ];
 
