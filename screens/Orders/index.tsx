@@ -16,6 +16,11 @@ export default function OrdersScreen() {
 
     return (
         <FlatList
+            ListHeaderComponent={() => (
+                <View>
+                    <Text>Orders</Text>
+                </View>
+            )}
             data={
                 orderData.find(
                     (order) =>
