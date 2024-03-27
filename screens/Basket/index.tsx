@@ -1,7 +1,8 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Pressable, Text, View } from "react-native";
 
 import orderData from "../../data/orderData";
 import IOrderItem from "../../interfaces/OrderItem";
+import { useNavigation } from "@react-navigation/native";
 
 function BasketItemCard({ item }: { item: IOrderItem }) {
     return (
@@ -14,8 +15,21 @@ function BasketItemCard({ item }: { item: IOrderItem }) {
 export default function BasketScreen() {
     const customerId = "22";
 
+    const navigation = useNavigation();
+
     return (
         <FlatList
+            ListFooterComponent={() => (
+                <View>
+                    <Pressable
+                        onPress={() => {
+                            navigation.navigate("OrderOptions");
+                        }}
+                    >
+                        <Text>Next</Text>
+                    </Pressable>
+                </View>
+            )}
             data={
                 orderData.find(
                     (order) =>
