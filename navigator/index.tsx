@@ -26,6 +26,8 @@ import AddReviewScreen from "../screens/AddReviewScreen";
 import ReviewsScreen from "../screens/Reviews";
 import ReviewScreen from "../screens/Review";
 import UpdateReviewScreen from "../screens/UpdateReviewScreen";
+import AccountAddressesScreen from "../screens/AccountAddresses";
+import AccountAddressScreen from "../screens/AccountAddress";
 
 const Stack = createNativeStackNavigator();
 
@@ -120,12 +122,19 @@ function Navigator() {
                 screenOptions={{ headerShown: false }}
             >
                 <Stack.Screen name="Home" component={HomeTabs} />
-
+                <Stack.Screen
+                    name="AccountAddresses"
+                    component={AccountAddressesScreen}
+                />
                 <Stack.Screen
                     name="AccountSettings"
                     component={AccountSettingsScreen}
                 />
                 <Stack.Screen name="AddAddress" component={AddAddressScreen} />
+                <Stack.Screen
+                    name="AccountAddress"
+                    component={AccountAddressScreen}
+                />
                 <Stack.Screen
                     name="AddAllergies"
                     component={AddAllergiesScreen}
