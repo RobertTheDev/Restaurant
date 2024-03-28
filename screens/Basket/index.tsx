@@ -1,8 +1,8 @@
+import { useNavigation } from "@react-navigation/native";
 import { FlatList, Pressable, Text, View } from "react-native";
 
 import orderData from "../../data/orderData";
 import IOrderItem from "../../interfaces/OrderItem";
-import { useNavigation } from "@react-navigation/native";
 
 function BasketItemCard({ item }: { item: IOrderItem }) {
     return (
