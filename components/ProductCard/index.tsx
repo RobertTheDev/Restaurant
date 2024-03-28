@@ -1,11 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
-import {
-    Image,
-    ImageSourcePropType,
-    Pressable,
-    Text,
-    View
-} from "react-native";
+import { Image } from "expo-image";
+import { ImageSourcePropType, Pressable, Text, View } from "react-native";
+import blurHashImage from "../../lib/hashBlurImage";
 
 export default function ProductCard(props: {
     item: { id: string; name: string; image: { uri: ImageSourcePropType } };
@@ -33,6 +29,7 @@ export default function ProductCard(props: {
                 }}
             >
                 <Image
+                    placeholder={blurHashImage}
                     style={{ width: "100%", height: "100%" }}
                     source={item.image.uri}
                 />
