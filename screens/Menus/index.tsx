@@ -9,14 +9,25 @@ function MenuCard({ item }: { item: IMenu }) {
 
     return (
         <Pressable
-            style={{ alignItems: "center" }}
+            style={{
+                alignItems: "center",
+                paddingVertical: 16,
+                width: "50%"
+            }}
             onPress={() => navigation.navigate("Menu", { slug: item.slug })}
         >
-            <Image
-                style={{ width: 160, height: 160, borderRadius: 99 }}
-                source={{ uri: item.imageUrl }}
-            />
-            <Text>{item.name}</Text>
+            <View style={{ paddingHorizontal: 16, marginBottom: 16 }}>
+                <Image
+                    style={{
+                        aspectRatio: "1/1",
+                        width: "100%",
+                        borderRadius: 99,
+                        overflow: "hidden"
+                    }}
+                    source={{ uri: item.image }}
+                />
+            </View>
+            <Text style={{ fontSize: 16, fontWeight: "500" }}>{item.name}</Text>
         </Pressable>
     );
 }
@@ -25,21 +36,20 @@ export default function MenusScreen() {
     return (
         <FlatList
             ListHeaderComponent={() => (
-                <View>
-                    <Text style={{ fontSize: 20, fontWeight: "500" }}>
-                        Menus
+                <View style={{ marginBottom: 16 }}>
+                    <Text style={{ fontSize: 24, fontWeight: "500" }}>
+                        Menu
                     </Text>
                 </View>
             )}
             numColumns={2}
             data={menusData}
             contentContainerStyle={{
+                alignItems: "center",
                 paddingVertical: 32,
-                gap: 32,
-                alignItems: "center"
+                width: "100%"
             }}
             style={{ width: "100%" }}
-            columnWrapperStyle={{ gap: 32 }}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => {
                 return <MenuCard item={item} />;
