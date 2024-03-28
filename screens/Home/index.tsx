@@ -1,8 +1,8 @@
 import { FlatList, View } from "react-native";
 
+import BasketButton from "../../components/BasketButton";
 import ProductCard from "../../components/ProductCard";
 import products from "../../data/products";
-import BasketButton from "../../components/BasketButton";
 
 export default function HomeScreen() {
     return (
