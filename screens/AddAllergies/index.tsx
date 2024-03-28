@@ -1,12 +1,15 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import * as Haptics from "expo-haptics";
+import { useState } from "react";
 import { FlatList, Pressable, Text, View } from "react-native";
 
 import allergies from "../../data/allergies";
 
 export default function AddAllergiesScreen() {
     const { goBack } = useNavigation();
+
+    const [userAllergies, setUserAllergies] = useState(["Fish"]);
 
     return (
         <FlatList
@@ -39,7 +42,7 @@ export default function AddAllergiesScreen() {
                 <Pressable
                     onPress={() => {
                         Haptics.impactAsync();
-                        console.log(item.icon);
+                        setUserAllergies(userAllergies.concat(item.icon));
                     }}
                     style={{
                         flexDirection: "row",
@@ -50,7 +53,16 @@ export default function AddAllergiesScreen() {
                     }}
                 >
                     <Text style={{ fontSize: 24 }}>{item.icon}</Text>
-                    <Text style={{ fontSize: 16 }}>{item.value}</Text>
+                    <Text
+                        style={{
+                            fontSize: 16,
+                            color: userAllergies.find((p) => p === item.value)
+                                ? "red"
+                                : "black"
+                        }}
+                    >
+                        {item.value}
+                    </Text>
                 </Pressable>
             )}
         />
