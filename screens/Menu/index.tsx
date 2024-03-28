@@ -14,26 +14,56 @@ export default function MenuScreen() {
     return (
         <FlatList
             ListHeaderComponent={() => (
-                <View>
+                <View
+                    style={{
+                        backgroundColor: "white",
+                        flexDirection: "row",
+                        gap: 16,
+                        paddingHorizontal: 24,
+                        paddingVertical: 8
+                    }}
+                >
                     <View
                         style={{
-                            height: 100,
-                            width: 100,
-                            borderRadius: 80,
+                            height: 60,
+                            width: 60,
+                            borderRadius: 40,
                             overflow: "hidden"
                         }}
                     >
                         <Image
                             style={{ height: "100%", width: "100%" }}
-                            source={{ uri: menu?.imageUrl }}
+                            source={{ uri: menu?.image.uri }}
                         />
                     </View>
-                    <Text style={{ fontSize: 20, fontWeight: "500" }}>
-                        {menu.name}
-                    </Text>
+                    <View>
+                        <Text
+                            style={{
+                                fontSize: 16,
+                                fontWeight: "500",
+                                marginBottom: 2
+                            }}
+                        >
+                            {menu.name}
+                        </Text>
+                        <Text
+                            style={{
+                                fontSize: 14,
+                                fontWeight: "400",
+                                width: 240
+                            }}
+                        >
+                            {menu?.description}
+                        </Text>
+                    </View>
                 </View>
             )}
             data={menu?.products}
+            ListEmptyComponent={() => (
+                <View>
+                    <Text>Ooops</Text>
+                </View>
+            )}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => {
                 return <ProductCard item={item} />;
