@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import {
     Keyboard,
@@ -22,7 +23,7 @@ export default function AddPaymentMethodScreen() {
             >
                 <View style={{ marginBottom: 32 }}>
                     <Pressable onPress={goBack}>
-                        <Text>Back</Text>
+                        <MaterialCommunityIcons name="chevron-left" size={28} />
                     </Pressable>
                     <Text style={{ fontSize: 24 }}>Add Payment Method</Text>
                 </View>
