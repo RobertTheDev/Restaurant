@@ -1,127 +1,63 @@
 const allergies = [
     {
-        icon: "🥜",
-        value: "Nuts"
-    },
-    {
-        icon: "🥚",
-        value: "Eggs"
-    },
-    {
-        icon: "🥛",
-        value: "Dairy"
-    },
-    {
-        icon: "🌾",
-        value: "Gluten (Wheat)"
-    },
-    {
-        icon: "🐟",
-        value: "Fish"
-    },
-    {
-        icon: "🦀",
-        value: "Shellfish"
-    },
-    {
-        icon: "🐚",
-        value: "Molluscs"
-    },
-    {
-        icon: "🐖",
-        value: "Pork"
-    },
-    {
-        icon: "🐄",
-        value: "Beef"
-    },
-    {
-        icon: "🍞",
-        value: "Soy"
-    },
-    {
-        icon: "🌰",
-        value: "Seeds (such as sesame seeds)"
-    },
-    {
-        icon: "🍇",
-        value: "Fruits (some individuals may be allergic to specific fruits)"
-    },
-    {
-        icon: "🍤",
-        value: "Sulfites (commonly found in processed foods, wine, and dried fruits)"
-    },
-    {
-        icon: "🍯",
-        value: "Honey (for those allergic to bee products)"
-    },
-    {
-        icon: "🍷",
-        value: "Sulfites (commonly found in wine)"
-    },
-    {
-        icon: "🍣",
-        value: "Soy (commonly found in soy sauce and some sushi)"
-    },
-    {
-        icon: "🍊",
-        value: "Citrus Fruits"
-    },
-    {
-        icon: "🥕",
-        value: "Carrots"
-    },
-    {
-        icon: "🍅",
-        value: "Tomatoes"
-    },
-    {
-        icon: "🥔",
-        value: "Potatoes"
-    },
-    {
-        icon: "🍍",
-        value: "Pineapple"
-    },
-    {
-        icon: "🥥",
-        value: "Coconut"
-    },
-    {
-        icon: "🌶️",
-        value: "Chili Peppers"
-    },
-    {
-        icon: "🍗",
-        value: "Poultry (chicken, turkey, etc.)"
-    },
-    {
-        icon: "🥩",
-        value: "Lamb"
-    },
-    {
-        icon: "🍊",
-        value: "Oranges"
+        icon: "🍏",
+        value: "Apples"
     },
     {
         icon: "🍑",
-        value: "Peaches"
-    },
-    {
-        icon: "🍓",
-        value: "Strawberries"
-    },
-    {
-        icon: "🍒",
-        value: "Cherries"
+        value: "Apricots"
     },
     {
         icon: "🥑",
         value: "Avocado"
     },
     {
-        icon: "🍆",
-        value: "Eggplant"
+        icon: "🌾",
+        value: "Barley"
+    },
+    {
+        icon: "🍯",
+        value: "Bee Products"
+    },
+    {
+        icon: "🐄",
+        value: "Beef"
+    },
+    {
+        icon: "🌶️",
+        value: "Bell Peppers"
+    },
+    {
+        icon: "🥜",
+        value: "Brazil Nuts"
+    },
+    {
+        icon: "🥦",
+        value: "Broccoli"
+    },
+    {
+        icon: "🥕",
+        value: "Carrots"
+    },
+    {
+        icon: "🍒",
+        value: "Cherries"
+    },
+    {
+        icon: "🌰",
+        value: "Chestnuts"
+    },
+    {
+        icon: "🌶️",
+        value: "Chili Peppers"
+    },
+    {
+        icon: "🍊",
+        value: "Citrus Fruits"
+    },
+    {
+        icon: "🥥",
+        value: "Coconuts"
     },
     {
         icon: "🌽",
@@ -129,127 +65,147 @@ const allergies = [
     },
     {
         icon: "🍤",
-        value: "Crustaceans (such as shrimp, crab, lobster)"
-    },
-    {
-        icon: "🥭",
-        value: "Mangoes"
-    },
-    {
-        icon: "🥜",
-        value: "Tree Nuts (such as almonds, cashews, walnuts)"
-    },
-    {
-        icon: "🥥",
-        value: "Coconuts"
-    },
-    {
-        icon: "🥛",
-        value: "Milk"
-    },
-    {
-        icon: "🍯",
-        value: "Honey"
-    },
-    {
-        icon: "🍞",
-        value: "Soy"
-    },
-    {
-        icon: "🍷",
-        value: "Sulfites (commonly found in wine)"
-    },
-    {
-        icon: "🥦",
-        value: "Broccoli"
+        value: "Crustaceans"
     },
     {
         icon: "🥒",
         value: "Cucumbers"
     },
     {
-        icon: "🌰",
-        value: "Sesame Seeds"
-    },
-    {
-        icon: "🥩",
-        value: "Red Meat (beef, lamb, pork)"
-    },
-    {
-        icon: "🍯",
-        value: "Bee Products (such as bee pollen, royal jelly)"
-    },
-    {
-        icon: "🍶",
-        value: "Soy Milk"
-    },
-    {
-        icon: "🍲",
-        value: "Monosodium Glutamate (MSG)"
-    },
-    {
         icon: "🥛",
-        value: "Lactose"
+        value: "Dairy"
+    },
+    {
+        icon: "🍆",
+        value: "Eggplants"
     },
     {
         icon: "🥚",
-        value: "Egg White"
+        value: "Eggs"
     },
     {
-        icon: "🥚",
-        value: "Egg Yolk"
+        icon: "🐟",
+        value: "Fish"
+    },
+    {
+        icon: "🍇",
+        value: "Fruits"
     },
     {
         icon: "🌾",
-        value: "Barley"
-    },
-    {
-        icon: "🥖",
-        value: "Rye"
-    },
-    {
-        icon: "🥭",
-        value: "Papayas"
-    },
-    {
-        icon: "🍅",
-        value: "Tomatoes"
-    },
-    {
-        icon: "🌶️",
-        value: "Bell Peppers"
-    },
-    {
-        icon: "🍏",
-        value: "Apples"
+        value: "Gluten"
     },
     {
         icon: "🥜",
         value: "Hazelnuts"
     },
     {
-        icon: "🌰",
-        value: "Pine Nuts"
+        icon: "🍯",
+        value: "Honey"
+    },
+    {
+        icon: "🥛",
+        value: "Lactose"
+    },
+    {
+        icon: "🥩",
+        value: "Lamb"
+    },
+    {
+        icon: "🥭",
+        value: "Mangoes"
+    },
+    {
+        icon: "🥛",
+        value: "Milk"
+    },
+    {
+        icon: "🐚",
+        value: "Molluscs"
+    },
+    {
+        icon: "🥜",
+        value: "Nuts"
+    },
+    {
+        icon: "🍊",
+        value: "Oranges"
+    },
+    {
+        icon: "🥭",
+        value: "Papayas"
+    },
+    {
+        icon: "🍑",
+        value: "Peaches"
     },
     {
         icon: "🥜",
         value: "Peanuts"
     },
     {
-        icon: "🥜",
-        value: "Brazil Nuts"
+        icon: "🍍",
+        value: "Pineapple"
     },
     {
         icon: "🌰",
-        value: "Chestnuts"
+        value: "Pine Nuts"
     },
     {
-        icon: "🍑",
-        value: "Apricots"
+        icon: "🐖",
+        value: "Pork"
+    },
+    {
+        icon: "🥔",
+        value: "Potatoes"
+    },
+    {
+        icon: "🍗",
+        value: "Poultry"
     },
     {
         icon: "🍯",
         value: "Propolis"
+    },
+    {
+        icon: "🥩",
+        value: "Red Meat"
+    },
+    {
+        icon: "🌰",
+        value: "Seeds"
+    },
+    {
+        icon: "🌰",
+        value: "Sesame Seeds"
+    },
+    {
+        icon: "🦀",
+        value: "Shellfish"
+    },
+    {
+        icon: "🍤",
+        value: "Shrimps"
+    },
+    {
+        icon: "🍣",
+        value: "Soy"
+    },
+    {
+        icon: "🍶",
+        value: "Soy Milk"
+    },
+    {
+        icon: "🍓",
+        value: "Strawberries"
+    },
+    {
+        icon: "🍷",
+        value: "Sulfites"
+    },
+    {
+        icon: "🍅",
+        value: "Tomatoes"
     }
 ];
 
