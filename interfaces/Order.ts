@@ -10,5 +10,6 @@ export default interface IOrder {
 
     // Custom fields
     orderItems: IOrderItem[];
+    quantity: number;
     status: string;
 }
