@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, TextInput, View } from "react-native";
 
 export default function EditAccountScreen() {
     const { goBack } = useNavigation();
@@ -13,6 +13,13 @@ export default function EditAccountScreen() {
             </Pressable>
 
             <Text>Edit Account</Text>
+
+            <Text>Change Name</Text>
+            <Text>You can change your name here.</Text>
+            <TextInput placeholder="Name" />
+            <Pressable>
+                <Text>Change Name</Text>
+            </Pressable>
         </View>
     );
 }
