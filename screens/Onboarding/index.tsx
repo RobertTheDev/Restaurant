@@ -1,6 +1,9 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import * as Haptics from "expo-haptics";
 import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import {
+    Alert,
     Dimensions,
     FlatList,
     Pressable,
@@ -10,6 +13,7 @@ import {
     View
 } from "react-native";
 
+import { signInSchema } from "../../validators/signIn.schema";
 import allergies from "../../data/allergies";
 
 const { width } = Dimensions.get("window");
@@ -41,25 +45,76 @@ function SignInWithPhoneNumber() {
 }
 
 function SignInWithEmail() {
-    const [email, setEmail] = useState("");
+    const { control, handleSubmit } = useForm({
+        defaultValues: {
+            email: ""
+        },
+        resolver: zodResolver(signInSchema)
+    });
+
+    const onSubmit = (data: unknown) => {
+        Alert.alert("Successful", JSON.stringify(data));
+    };
+
     return (
-        <View style={{ height: "100%", width }}>
-            <Text>Email Address</Text>
-            <TextInput
-                style={{
-                    width: 120,
-                    height: 40,
-                    backgroundColor: "whitesmoke"
-                }}
-                placeholder="Enter Email"
-                onChangeText={(text) => setEmail(text)}
+        <View style={{ height: "100%", width, alignItems: "center" }}>
+            <Controller
+                control={control}
+                name="email"
+                render={({
+                    field: { value, onChange, onBlur },
+                    fieldState: { error }
+                }) => (
+                    <View
+                        style={{
+                            width: "90%",
+                            marginBottom: 16
+                        }}
+                    >
+                        <Text>Email Address</Text>
+                        <TextInput
+                            placeholder="email"
+                            style={{
+                                height: 40,
+                                backgroundColor: "whitesmoke",
+
+                                width: "100%",
+                                paddingHorizontal: 24,
+                                paddingVertical: 24,
+                                borderRadius: 8,
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}
+                            value={value}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                        />
+                        {error && (
+                            <Text style={{ color: "red" }}>
+                                {error.message}
+                            </Text>
+                        )}
+                    </View>
+                )}
             />
+
             <Pressable
-                onPress={() => {
-                    console.log(email);
+                style={{
+                    backgroundColor: "royalblue",
+                    width: "90%",
+                    paddingHorizontal: 24,
+                    paddingVertical: 24,
+                    borderRadius: 8,
+                    alignItems: "center",
+                    justifyContent: "center"
                 }}
+                onPress={handleSubmit(onSubmit)}
             >
-                <Text>Sign In With Email Address</Text>
+                <Text
+                    style={{ fontSize: 16, fontWeight: "500", color: "white" }}
+                >
+                    Sign In With Email Address
+                </Text>
             </Pressable>
         </View>
     );
