@@ -1,13 +1,17 @@
 import { useNavigation } from "@react-navigation/native";
-import { FlatList, Pressable, Text, View } from "react-native";
+import { FlatList, Image, Pressable, Text, View } from "react-native";
 
-import orderData from "../../data/orderData";
+import orderDatas from "../../data/orderData";
 import IOrderItem from "../../interfaces/OrderItem";
 
 function BasketItemCard({ item }: { item: IOrderItem }) {
     return (
         <View>
             <Text>{item.id}</Text>
+            <Image
+                style={{ height: 240, width: 240 }}
+                source={item.product.image.uri}
+            />
         </View>
     );
 }
@@ -15,10 +19,27 @@ function BasketItemCard({ item }: { item: IOrderItem }) {
 export default function BasketScreen() {
     const customerId = "22";
 
+    const basket = orderDatas.find(
+        (order) => order.customerId === customerId && order.status === "basket"
+    );
+
     const navigation = useNavigation();
+
+    if (!basket) {
+        return (
+            <View>
+                <Text>No items in your basket</Text>
+            </View>
+        );
+    }
 
     return (
         <FlatList
+            ListHeaderComponent={() => (
+                <View>
+                    <Text>Basket ({basket?.quantity})</Text>
+                </View>
+            )}
             ListFooterComponent={() => (
                 <View>
                     <Pressable
@@ -30,13 +51,7 @@ export default function BasketScreen() {
                     </Pressable>
                 </View>
             )}
-            data={
-                orderData.find(
-                    (order) =>
-                        order.customerId === customerId &&
-                        order.status === "basket"
-                )?.orderItems
-            }
+            data={basket?.orderItems}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => <BasketItemCard item={item} />}
         />
