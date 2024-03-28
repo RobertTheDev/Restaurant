@@ -1,23 +1,28 @@
 const accountLinks = [
     {
-        icon: "",
+        icon: "pencil-outline",
         link: "EditAccount",
         name: "Edit Account"
     },
     {
-        icon: "",
+        icon: "credit-card-outline",
         link: "AddPaymentMethod",
         name: "Add Payment Method"
     },
     {
-        icon: "",
+        icon: "home-plus-outline",
         link: "AddAddress",
         name: "Add Address"
     },
     {
-        icon: "",
+        icon: "peanut-outline",
         link: "AddAllergies",
         name: "Add Allergies"
+    },
+    {
+        icon: "cogs",
+        link: "AccountSettings",
+        name: "Account Settings"
     }
 ];
 
