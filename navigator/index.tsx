@@ -21,6 +21,8 @@ import NotFoundScreen from "../screens/NotFound";
 import OrderConfirmationScreen from "../screens/OrderConfirmation";
 import OrdersScreen from "../screens/Orders";
 import ProductScreen from "../screens/Product";
+import ManagePaymentMethods from "../screens/ManagePaymentMethods";
+import UpdatePaymentMethodScreen from "../screens/UpdatePaymentMethod";
 
 const Stack = createNativeStackNavigator();
 
@@ -135,6 +137,14 @@ function Navigator() {
                 <Stack.Screen
                     name="OrderConfirmation"
                     component={OrderConfirmationScreen}
+                />
+                <Stack.Screen
+                    name="ManagePaymentMethods"
+                    component={ManagePaymentMethods}
+                />
+                <Stack.Screen
+                    name="UpdatePaymentMethod"
+                    component={UpdatePaymentMethodScreen}
                 />
                 <Stack.Screen name="Product" component={ProductScreen} />
             </Stack.Navigator>
