@@ -6,8 +6,8 @@ const accountLinks = [
     },
     {
         icon: "credit-card-outline",
-        link: "AddPaymentMethod",
-        name: "Add Payment Method"
+        link: "ManagePaymentMethods",
+        name: "Manage Payment Methods"
     },
     {
         icon: "home-plus-outline",
