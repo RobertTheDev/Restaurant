@@ -1,72 +1,65 @@
-import { useRoute } from "@react-navigation/native";
-import { FlatList, Image, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Image } from "expo-image";
+import { FlatList, Pressable, Text, View } from "react-native";
 
-import ProductCard from "../../components/ProductCard";
 import menusData from "../../data/menus";
+import IMenu from "../../interfaces/Menu";
+import blurHashImage from "../../lib/hashBlurImage";
+
+function MenuCard({ item }: { item: IMenu }) {
+    const navigation = useNavigation();
+
+    return (
+        <Pressable
+            style={{
+                alignItems: "center",
+                paddingVertical: 16,
+                width: "50%"
+            }}
+            onPress={() =>
+                navigation.navigate("MenuSection", { slug: item.slug })
+            }
+        >
+            <View style={{ paddingHorizontal: 16, marginBottom: 16 }}>
+                <Image
+                    source={{ uri: item.image.uri }}
+                    placeholder={blurHashImage}
+                    contentFit="cover"
+                    transition={1000}
+                    style={{
+                        aspectRatio: "1/1",
+                        width: "100%",
+                        borderRadius: 99,
+                        overflow: "hidden"
+                    }}
+                />
+            </View>
+            <Text style={{ fontSize: 16, fontWeight: "500" }}>{item.name}</Text>
+        </Pressable>
+    );
+}
 
 export default function MenuScreen() {
-    const route = useRoute();
-
-    const { slug } = route.params;
-
-    const menu = menusData.find((menu) => menu.slug === slug);
-
     return (
         <FlatList
             ListHeaderComponent={() => (
-                <View
-                    style={{
-                        backgroundColor: "white",
-                        flexDirection: "row",
-                        gap: 16,
-                        paddingHorizontal: 24,
-                        paddingVertical: 8
-                    }}
-                >
-                    <View
-                        style={{
-                            height: 60,
-                            width: 60,
-                            borderRadius: 40,
-                            overflow: "hidden"
-                        }}
-                    >
-                        <Image
-                            style={{ height: "100%", width: "100%" }}
-                            source={{ uri: menu?.image.uri }}
-                        />
-                    </View>
-                    <View>
-                        <Text
-                            style={{
-                                fontSize: 16,
-                                fontWeight: "500",
-                                marginBottom: 2
-                            }}
-                        >
-                            {menu.name}
-                        </Text>
-                        <Text
-                            style={{
-                                fontSize: 14,
-                                fontWeight: "400",
-                                width: 240
-                            }}
-                        >
-                            {menu?.description}
-                        </Text>
-                    </View>
+                <View style={{ marginBottom: 16 }}>
+                    <Text style={{ fontSize: 24, fontWeight: "500" }}>
+                        Menu
+                    </Text>
                 </View>
             )}
-            data={menu?.products}
-            ListEmptyComponent={() => (
-                <View>
-                    <Text>Ooops</Text>
-                </View>
-            )}
+            numColumns={2}
+            data={menusData}
+            contentContainerStyle={{
+                alignItems: "center",
+                paddingVertical: 32,
+                width: "100%"
+            }}
+            style={{ width: "100%" }}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => {
-                return <ProductCard item={item} />;
+                return <MenuCard item={item} />;
             }}
         />
     );
