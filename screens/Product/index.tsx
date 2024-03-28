@@ -38,21 +38,48 @@ export default function ProductScreen() {
                 <View>
                     <Text>Sizes</Text>
                 </View>
+                {/* Allergies */}
                 <View>
-                    <Text>Allergies</Text>
+                    <Text>Allergic Warnings</Text>
+                    {product.allergyWarnings.map((allergy) => {
+                        return (
+                            <View>
+                                <Text>{allergy.icon}</Text>
+                                <Text>{allergy.value}</Text>
+                            </View>
+                        );
+                    })}
                 </View>
                 <View>
                     <Pressable>
                         <Text>Save</Text>
                     </Pressable>
                 </View>
+                {/* Nutrition */}
+                <View>
+                    <Text>Nutrition</Text>
+                    <Text>Calories: {product.nutrition.calories}</Text>
+                    <Text>
+                        Carbohydrates: {product.nutrition.carbohydrates}
+                    </Text>
+                    <Text>Fat: {product.nutrition.fat}</Text>
+                    <Text>Protein: {product.nutrition.protein}</Text>
+                </View>
+                {/* Quantity */}
+                <View>
+                    <Text>Quantity</Text>
+                    <Text>{product.quantity} available</Text>
+                </View>
+                {/* Description */}
+                <View>
+                    <Text>Description</Text>
+                    <Text>{product.description}</Text>
+                </View>
+                {/* Add to basket */}
                 <View>
                     <Pressable>
                         <Text>Add To Basket</Text>
                     </Pressable>
-                </View>
-                <View>
-                    <Text>Description</Text>
                 </View>
             </View>
         </ScrollView>
