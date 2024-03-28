@@ -23,6 +23,11 @@ const accountLinks = [
         icon: "cogs",
         link: "AccountSettings",
         name: "Account Settings"
+    },
+    {
+        icon: "star-outline",
+        link: "Reviews",
+        name: "Add A Review"
     }
 ];
 
