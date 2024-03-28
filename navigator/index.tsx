@@ -1,4 +1,4 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import {
     BottomTabBarButtonProps,
     createBottomTabNavigator
@@ -8,7 +8,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Pressable, Text } from "react-native";
 
 import AccountScreen from "../screens/Account";
+import AccountSettingsScreen from "../screens/AccountSettings";
 import AddAddressScreen from "../screens/AddAddress";
+import AddAllergiesScreen from "../screens/AddAllergies";
 import AddPaymentMethodScreen from "../screens/AddPaymentMethod";
 import BasketScreen from "../screens/Basket";
 import EditAccountScreen from "../screens/EditAccount";
@@ -42,16 +44,16 @@ function TabButton({
             }}
         >
             {title === "Home" && (
-                <MaterialIcons name="home" size={24} color="black" />
+                <Ionicons name="home-outline" size={24} color="black" />
             )}
             {title === "Menu" && (
-                <MaterialIcons name="restaurant-menu" size={24} color="black" />
+                <Ionicons name="restaurant-outline" size={24} color="black" />
             )}
             {title === "Orders" && (
                 <MaterialIcons name="list-alt" size={24} color="black" />
             )}
             {title === "Account" && (
-                <MaterialIcons name="settings" size={24} color="black" />
+                <Feather name="user" size={24} color="black" />
             )}
             <Text style={{ fontSize: 10, fontWeight: "600" }}>{title}</Text>
         </Pressable>
@@ -109,23 +111,32 @@ function Navigator() {
                 screenOptions={{ headerShown: false }}
             >
                 <Stack.Screen name="Home" component={HomeTabs} />
-                <Stack.Screen name="Menu" component={MenuScreen} />
-                <Stack.Screen name="Product" component={ProductScreen} />
-                <Stack.Screen name="Basket" component={BasketScreen} />
+
+                <Stack.Screen
+                    name="AccountSettings"
+                    component={AccountSettingsScreen}
+                />
+                <Stack.Screen name="AddAddress" component={AddAddressScreen} />
+                <Stack.Screen
+                    name="AddAllergies"
+                    component={AddAllergiesScreen}
+                />
                 <Stack.Screen
                     name="AddPaymentMethod"
                     component={AddPaymentMethodScreen}
                 />
-                <Stack.Screen name="AddAddress" component={AddAddressScreen} />
+                <Stack.Screen name="Basket" component={BasketScreen} />
                 <Stack.Screen
                     name="EditAccount"
                     component={EditAccountScreen}
                 />
+                <Stack.Screen name="Menu" component={MenuScreen} />
                 <Stack.Screen name="NotFound" component={NotFoundScreen} />
                 <Stack.Screen
                     name="OrderConfirmation"
                     component={OrderConfirmationScreen}
                 />
+                <Stack.Screen name="Product" component={ProductScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
