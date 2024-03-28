@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 
 import BasketButton from "../../components/BasketButton";
 import ProductCard from "../../components/ProductCard";
@@ -9,9 +9,24 @@ export default function HomeScreen() {
         <View style={{ flex: 1, width: "100%" }}>
             <BasketButton />
             <FlatList
+                ListHeaderComponent={() => (
+                    <View
+                        style={{
+                            height: 64,
+                            backgroundColor: "white",
+                            width: "100%",
+                            alignItems: "center",
+                            justifyContent: "center"
+                        }}
+                    >
+                        <Text style={{ fontSize: 20, fontWeight: "500" }}>
+                            Hello
+                        </Text>
+                    </View>
+                )}
                 data={products}
                 keyExtractor={(_product, index) => index.toString()}
-                contentContainerStyle={{ gap: 24, paddingVertical: 24 }}
+                contentContainerStyle={{ gap: 24 }}
                 renderItem={({ item }) => {
                     return <ProductCard item={item} />;
                 }}
