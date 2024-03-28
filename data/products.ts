@@ -138,7 +138,20 @@ const products = [
         name: "TexMex Pizza",
         //         status: "Deal",
         //         sizes: ["S", "M", "X"]
-        allergyWarnings: [{ icon: "", value: "" }]
+        allergyWarnings: [
+            {
+                icon: "🥚",
+                value: "Eggs"
+            },
+            {
+                icon: "🥛",
+                value: "Dairy"
+            },
+            {
+                icon: "🌾",
+                value: "Gluten (Wheat)"
+            }
+        ]
     },
     {
         id: "3",
