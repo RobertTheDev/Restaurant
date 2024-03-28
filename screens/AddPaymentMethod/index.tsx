@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import {
     Keyboard,
     Pressable,
@@ -12,12 +13,17 @@ export default function AddPaymentMethodScreen() {
         Keyboard.dismiss();
     };
 
+    const { goBack } = useNavigation();
+
     return (
         <TouchableWithoutFeedback onPress={handlePressOutside}>
             <View
                 style={{ padding: 32, backgroundColor: "whitesmoke", flex: 1 }}
             >
                 <View style={{ marginBottom: 32 }}>
+                    <Pressable onPress={goBack}>
+                        <Text>Back</Text>
+                    </Pressable>
                     <Text style={{ fontSize: 24 }}>Add Payment Method</Text>
                 </View>
                 <View style={{ gap: 16 }}>
