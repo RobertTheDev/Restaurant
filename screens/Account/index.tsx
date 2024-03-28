@@ -16,7 +16,6 @@ export default function AccountScreen() {
 
     return (
         <FlatList
-            bounces={false}
             contentContainerStyle={{
                 flex: 1,
                 alignItems: "center",
@@ -65,26 +64,7 @@ export default function AccountScreen() {
             )}
             ListFooterComponent={() => (
                 <View style={{ marginTop: 16 }}>
-                    <Pressable
-                        onPress={() => {
-                            Alert.alert(
-                                "Sign out?",
-                                "You can always sign back in",
-                                [
-                                    {
-                                        text: "Cancel",
-
-                                        onPress: () => {}
-                                    },
-                                    {
-                                        text: "Sign Out",
-                                        style: "destructive",
-                                        onPress: () => {}
-                                    }
-                                ]
-                            );
-                        }}
-                    >
+                    <Pressable onPress={signOut}>
                         <Text
                             style={{
                                 textDecorationLine: "underline",
@@ -98,4 +78,19 @@ export default function AccountScreen() {
             )}
         />
     );
+}
+
+function signOut() {
+    return Alert.alert("Sign out?", "You can always sign back in", [
+        {
+            text: "Cancel",
+
+            onPress: () => {}
+        },
+        {
+            text: "Sign Out",
+            style: "destructive",
+            onPress: () => {}
+        }
+    ]);
 }
