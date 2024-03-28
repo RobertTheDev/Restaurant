@@ -7,17 +7,17 @@ const accountLinks = [
     {
         icon: "credit-card-outline",
         link: "ManagePaymentMethods",
-        name: "Manage Payment Methods"
+        name: "Payment Methods"
     },
     {
         icon: "home-plus-outline",
-        link: "AddAddress",
-        name: "Add Address"
+        link: "AccountAddresses",
+        name: "Addresses"
     },
     {
         icon: "peanut-outline",
         link: "AddAllergies",
-        name: "Add Allergies"
+        name: "Allergies"
     },
     {
         icon: "cogs",
@@ -27,7 +27,7 @@ const accountLinks = [
     {
         icon: "star-outline",
         link: "Reviews",
-        name: "Add A Review"
+        name: "Reviews"
     }
 ];
 
