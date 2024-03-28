@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { FlatList, Text, View } from "react-native";
 
 import orderData from "../../data/orderData";
@@ -7,6 +8,9 @@ function OrderItemCard({ item }: { item: IOrderItem }) {
     return (
         <View>
             <Text>{item.id}</Text>
+            <Text>{format(item.createdAt, "yyyy")}</Text>
+
+            <Text>{item.quantity}</Text>
         </View>
     );
 }
@@ -19,6 +23,10 @@ export default function OrdersScreen() {
             ListHeaderComponent={() => (
                 <View>
                     <Text>Orders</Text>
+                    <Text>
+                        All your active and historic orders will appear on this
+                        screen.
+                    </Text>
                 </View>
             )}
             data={
