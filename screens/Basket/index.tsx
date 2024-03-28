@@ -36,8 +36,18 @@ export default function BasketScreen() {
     return (
         <FlatList
             ListHeaderComponent={() => (
-                <View>
-                    <Text>Basket ({basket?.quantity})</Text>
+                <View
+                    style={{
+                        height: 64,
+                        backgroundColor: "white",
+                        width: "100%",
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}
+                >
+                    <Text style={{ fontSize: 16, fontWeight: "600" }}>
+                        Basket ({basket?.quantity})
+                    </Text>
                 </View>
             )}
             ListFooterComponent={() => (

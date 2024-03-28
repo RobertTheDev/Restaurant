@@ -9,7 +9,17 @@ import allergies from "../../data/allergies";
 export default function AddAllergiesScreen() {
     const { goBack } = useNavigation();
 
-    const [userAllergies, setUserAllergies] = useState(["Fish"]);
+    const [userAllergies, setUserAllergies] = useState<string[]>([]);
+
+    const handleToggleItem = (newItem: string) => {
+        if (userAllergies.includes(newItem)) {
+            setUserAllergies((prevAllergies) =>
+                prevAllergies.filter((item) => item !== newItem)
+            );
+        } else {
+            setUserAllergies((prevAllergies) => [...prevAllergies, newItem]);
+        }
+    };
 
     return (
         <FlatList
@@ -42,23 +52,46 @@ export default function AddAllergiesScreen() {
                 <Pressable
                     onPress={() => {
                         Haptics.impactAsync();
-                        setUserAllergies(userAllergies.concat(item.icon));
+                        handleToggleItem(item.value);
                     }}
                     style={{
                         flexDirection: "row",
                         alignItems: "center",
+                        backgroundColor: "white",
                         gap: 16,
-                        paddingHorizontal: 16,
+                        paddingHorizontal: 24,
                         paddingVertical: 8
                     }}
                 >
+                    <View
+                        style={{
+                            height: 16,
+                            width: 16,
+                            borderRadius: 99,
+                            alignItems: "center",
+                            justifyContent: "center",
+                            backgroundColor: "white",
+                            borderColor: "lightgray",
+                            borderWidth: 1
+                        }}
+                    >
+                        <View
+                            style={{
+                                height: 10,
+                                width: 10,
+                                borderRadius: 99,
+                                backgroundColor: userAllergies.find(
+                                    (p) => p === item.value
+                                )
+                                    ? "royalblue"
+                                    : "white"
+                            }}
+                        />
+                    </View>
                     <Text style={{ fontSize: 24 }}>{item.icon}</Text>
                     <Text
                         style={{
-                            fontSize: 16,
-                            color: userAllergies.find((p) => p === item.value)
-                                ? "red"
-                                : "black"
+                            fontSize: 16
                         }}
                     >
                         {item.value}

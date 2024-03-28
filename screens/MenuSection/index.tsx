@@ -74,7 +74,13 @@ export default function MenuSectionScreen() {
             data={menu?.products}
             ListEmptyComponent={() => (
                 <View>
-                    <Text>Ooops</Text>
+                    <Text>
+                        Oops. There are currently no active menu items in this
+                        section of the menu at the moment.
+                    </Text>
+                    <Pressable onPress={goBack}>
+                        <Text>Go Back</Text>
+                    </Pressable>
                 </View>
             )}
             keyExtractor={(item) => item.id}

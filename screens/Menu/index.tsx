@@ -34,7 +34,7 @@ function MenuCard({ item }: { item: IMenu }) {
                     }}
                 />
             </View>
-            <Text style={{ fontSize: 16, fontWeight: "500" }}>{item.name}</Text>
+            <Text style={{ fontSize: 16, fontWeight: "600" }}>{item.name}</Text>
         </Pressable>
     );
 }
@@ -44,7 +44,7 @@ export default function MenuScreen() {
         <FlatList
             ListHeaderComponent={() => (
                 <View style={{ marginBottom: 16 }}>
-                    <Text style={{ fontSize: 24, fontWeight: "500" }}>
+                    <Text style={{ fontSize: 24, fontWeight: "600" }}>
                         Menu
                     </Text>
                 </View>
@@ -53,6 +53,7 @@ export default function MenuScreen() {
             data={menusData}
             contentContainerStyle={{
                 alignItems: "center",
+                paddingHorizontal: 8,
                 paddingVertical: 32,
                 width: "100%"
             }}

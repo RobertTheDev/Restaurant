@@ -26,7 +26,7 @@ export default function HomeScreen() {
                 )}
                 data={products}
                 keyExtractor={(_product, index) => index.toString()}
-                contentContainerStyle={{ gap: 24 }}
+                contentContainerStyle={{ gap: 32 }}
                 renderItem={({ item }) => {
                     return <ProductCard item={item} />;
                 }}
