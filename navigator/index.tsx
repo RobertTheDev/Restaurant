@@ -15,14 +15,17 @@ import AddPaymentMethodScreen from "../screens/AddPaymentMethod";
 import BasketScreen from "../screens/Basket";
 import EditAccountScreen from "../screens/EditAccount";
 import HomeScreen from "../screens/Home";
+import MakeOrderScreen from "../screens/MakeOrder";
+import ManagePaymentMethods from "../screens/ManagePaymentMethods";
 import MenuScreen from "../screens/Menu";
-import MenusScreen from "../screens/Menus";
-import NotFoundScreen from "../screens/NotFound";
-import OrderConfirmationScreen from "../screens/OrderConfirmation";
+import MenuSectionScreen from "../screens/MenuSection";
 import OrdersScreen from "../screens/Orders";
 import ProductScreen from "../screens/Product";
-import ManagePaymentMethods from "../screens/ManagePaymentMethods";
 import UpdatePaymentMethodScreen from "../screens/UpdatePaymentMethod";
+import AddReviewScreen from "../screens/AddReviewScreen";
+import ReviewsScreen from "../screens/Reviews";
+import ReviewScreen from "../screens/Review";
+import UpdateReviewScreen from "../screens/UpdateReviewScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -64,7 +67,11 @@ function TabButton({
 
 function HomeTabs() {
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+        >
             <Tab.Screen
                 name="HomeTabs"
                 component={HomeScreen}
@@ -76,7 +83,7 @@ function HomeTabs() {
             />
             <Tab.Screen
                 name="MenuTabs"
-                component={MenusScreen}
+                component={MenuScreen}
                 options={{
                     tabBarButton: (props) => (
                         <TabButton props={props} title="Menu" />
@@ -132,15 +139,21 @@ function Navigator() {
                     name="EditAccount"
                     component={EditAccountScreen}
                 />
-                <Stack.Screen name="Menu" component={MenuScreen} />
-                <Stack.Screen name="NotFound" component={NotFoundScreen} />
                 <Stack.Screen
-                    name="OrderConfirmation"
-                    component={OrderConfirmationScreen}
+                    name="MenuSection"
+                    component={MenuSectionScreen}
                 />
+                <Stack.Screen name="MakeOrder" component={MakeOrderScreen} />
                 <Stack.Screen
                     name="ManagePaymentMethods"
                     component={ManagePaymentMethods}
+                />
+                <Stack.Screen name="AddReview" component={AddReviewScreen} />
+                <Stack.Screen name="Reviews" component={ReviewsScreen} />
+                <Stack.Screen name="Review" component={ReviewScreen} />
+                <Stack.Screen
+                    name="UpdateReview"
+                    component={UpdateReviewScreen}
                 />
                 <Stack.Screen
                     name="UpdatePaymentMethod"
