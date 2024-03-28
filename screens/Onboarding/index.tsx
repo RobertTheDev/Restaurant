@@ -2,6 +2,47 @@ import { Dimensions, ScrollView, Text, View } from "react-native";
 
 const { width } = Dimensions.get("window");
 
+function SignInWithPhoneNumber() {
+    return (
+        <View style={{ height: "100%", width }}>
+            <Text>Email Address</Text>
+        </View>
+    );
+}
+
+function SignInWithEmail() {
+    return (
+        <View style={{ height: "100%", width }}>
+            <Text>Email Address</Text>
+        </View>
+    );
+}
+
+function SignIn() {
+    return (
+        <View>
+            <SignInWithEmail />
+            <SignInWithPhoneNumber />
+        </View>
+    );
+}
+
+function AddName() {
+    return (
+        <View style={{ height: "100%", width }}>
+            <Text>Name</Text>
+        </View>
+    );
+}
+
+function AddAllergies() {
+    return (
+        <View style={{ height: "100%", width }}>
+            <Text>Allergies</Text>
+        </View>
+    );
+}
+
 export default function OnboardingScreen() {
     return (
         <ScrollView
@@ -9,22 +50,12 @@ export default function OnboardingScreen() {
             bounces={false}
             horizontal
             pagingEnabled
-            // scrollEnabled={false}
             scrollEventThrottle={16}
             showsHorizontalScrollIndicator={false}
         >
-            <View style={{ height: "100%", width }}>
-                <Text>Email Address</Text>
-            </View>
-            <View style={{ height: "100%", width }}>
-                <Text>Name</Text>
-            </View>
-            <View style={{ height: "100%", width }}>
-                <Text>Allergies</Text>
-            </View>
-            <View style={{ height: "100%", width }}>
-                <Text>Add Address</Text>
-            </View>
+            <SignIn />
+            <AddName />
+            <AddAllergies />
         </ScrollView>
     );
 }
