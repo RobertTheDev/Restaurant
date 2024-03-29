@@ -24,6 +24,7 @@ export default function HomeScreen() {
                         </Text>
                     </View>
                 )}
+                stickyHeaderIndices={[0]}
                 data={products}
                 keyExtractor={(_product, index) => index.toString()}
                 contentContainerStyle={{ gap: 32 }}

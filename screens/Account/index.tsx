@@ -19,11 +19,10 @@ export default function AccountScreen() {
             contentContainerStyle={{
                 flex: 1,
                 alignItems: "center",
-                paddingVertical: 32,
-                gap: 16
+                paddingVertical: 32
             }}
             ListHeaderComponent={() => (
-                <View>
+                <View style={{ marginBottom: 32 }}>
                     <Feather name="user" size={48} />
                     <Text
                         style={{
@@ -46,11 +45,12 @@ export default function AccountScreen() {
                         width: Dimensions.get("window").width * 0.8,
                         paddingVertical: 16,
                         paddingHorizontal: 24,
-                        borderRadius: 8,
                         overflow: "hidden",
                         flexDirection: "row",
                         gap: 24,
-                        alignItems: "center"
+                        alignItems: "center",
+                        borderBottomColor: "lightgray",
+                        borderBottomWidth: 1
                     }}
                     onPress={() => {
                         navigation.navigate(item.link);
@@ -63,7 +63,7 @@ export default function AccountScreen() {
                 </Pressable>
             )}
             ListFooterComponent={() => (
-                <View style={{ marginTop: 16 }}>
+                <View style={{ marginTop: 32 }}>
                     <Pressable onPress={signOut}>
                         <Text
                             style={{

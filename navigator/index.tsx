@@ -51,18 +51,18 @@ function TabButton({
             }}
         >
             {title === "Home" && (
-                <Ionicons name="home-outline" size={24} color="black" />
+                <Ionicons name="home-outline" size={20} color="black" />
             )}
             {title === "Menu" && (
-                <Ionicons name="restaurant-outline" size={24} color="black" />
+                <Ionicons name="restaurant-outline" size={20} color="black" />
             )}
             {title === "Orders" && (
-                <MaterialIcons name="list-alt" size={24} color="black" />
+                <MaterialIcons name="list-alt" size={20} color="black" />
             )}
             {title === "Account" && (
-                <Feather name="user" size={24} color="black" />
+                <Feather name="user" size={20} color="black" />
             )}
-            <Text style={{ fontSize: 10, fontWeight: "600" }}>{title}</Text>
+            <Text style={{ fontSize: 10, fontWeight: "500" }}>{title}</Text>
         </Pressable>
     );
 }

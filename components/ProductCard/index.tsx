@@ -13,7 +13,7 @@ export default function ProductCard(props: {
     return (
         <Pressable
             style={{
-                paddingHorizontal: 24,
+                paddingHorizontal: 0,
                 gap: 16
             }}
             onPress={() =>

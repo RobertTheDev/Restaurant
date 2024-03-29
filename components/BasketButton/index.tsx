@@ -28,7 +28,7 @@ export default function BasketButton() {
                     position: "absolute",
                     top: -8,
                     right: -4,
-                    backgroundColor: "royalblue",
+                    backgroundColor: "black",
                     height: 24,
                     width: 24,
                     justifyContent: "center",
@@ -36,7 +36,7 @@ export default function BasketButton() {
                     borderRadius: 12
                 }}
             >
-                <Text style={{ fontSize: 12 }}>9+</Text>
+                <Text style={{ fontSize: 12, color: "white" }}>9+</Text>
             </View>
             <MaterialIcons name="add-shopping-cart" size={28} color="black" />
         </Pressable>

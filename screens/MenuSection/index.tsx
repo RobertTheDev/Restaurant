@@ -21,25 +21,21 @@ export default function MenuSectionScreen() {
                     style={{
                         backgroundColor: "white",
                         flexDirection: "row",
-                        gap: 16,
+                        gap: 8,
                         paddingHorizontal: 24,
-                        paddingVertical: 8
+                        paddingVertical: 8,
+                        height: 64,
+                        width: "100%",
+                        alignItems: "center"
                     }}
                 >
-                    <Pressable
-                        style={{
-                            height: 16,
-                            width: 16,
-                            backgroundColor: "whitesmoke"
-                        }}
-                        onPress={goBack}
-                    >
-                        <MaterialCommunityIcons name="chevron-left" />
+                    <Pressable onPress={goBack}>
+                        <MaterialCommunityIcons name="chevron-left" size={28} />
                     </Pressable>
                     <View
                         style={{
-                            height: 60,
-                            width: 60,
+                            height: 40,
+                            width: 40,
                             borderRadius: 40,
                             overflow: "hidden"
                         }}
@@ -52,21 +48,12 @@ export default function MenuSectionScreen() {
                     <View>
                         <Text
                             style={{
-                                fontSize: 16,
-                                fontWeight: "500",
+                                fontSize: 18,
+                                fontWeight: "600",
                                 marginBottom: 2
                             }}
                         >
                             {menu.name}
-                        </Text>
-                        <Text
-                            style={{
-                                fontSize: 14,
-                                fontWeight: "400",
-                                width: 240
-                            }}
-                        >
-                            {menu?.description}
                         </Text>
                     </View>
                 </View>

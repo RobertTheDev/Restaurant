@@ -103,7 +103,7 @@ export default function ProductScreen() {
             >
                 <Pressable
                     style={{
-                        backgroundColor: "red",
+                        backgroundColor: "black",
                         width: "100%",
                         flex: 1,
                         borderRadius: 99,

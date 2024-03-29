@@ -22,82 +22,109 @@ export default function AddAllergiesScreen() {
     };
 
     return (
-        <FlatList
-            ListHeaderComponent={() => {
-                return (
-                    <View
-                        style={{
-                            height: 60,
-                            width: "100%",
-                            backgroundColor: "white",
-                            paddingHorizontal: 16,
-                            alignItems: "center",
-                            flexDirection: "row"
+        <View style={{ flex: 1, width: "100%" }}>
+            {/* <View
+                style={{
+                    height: 60,
+                    width: "100%",
+                    backgroundColor: "white",
+                    paddingHorizontal: 16,
+                    alignItems: "center",
+                    flexDirection: "row",
+                    position: "absolute",
+                    top: 0,
+                    marginBottom: 24
+                }}
+            >
+                <Pressable onPress={goBack}>
+                    <MaterialCommunityIcons name="chevron-left" size={32} />
+                </Pressable>
+                <Text>Add Allergies</Text>
+            </View> */}
+            <FlatList
+                contentContainerStyle={{
+                    backgroundColor: "red",
+                    borderRadius: 16,
+                    overflow: "hidden",
+                    width: "90%",
+                    maxHeight: 480
+                }}
+                // ListHeaderComponent={() => {
+                //     return (
+                //         <View
+                //             style={{
+                //                 height: 60,
+                //                 width: "100%",
+                //                 backgroundColor: "white",
+                //                 paddingHorizontal: 16,
+                //                 alignItems: "center",
+                //                 flexDirection: "row"
+                //             }}
+                //         >
+                //             <Pressable onPress={goBack}>
+                //                 <MaterialCommunityIcons
+                //                     name="chevron-left"
+                //                     size={32}
+                //                 />
+                //             </Pressable>
+                //             <Text>Add Allergies</Text>
+                //         </View>
+                //     );
+                // }}
+                // stickyHeaderIndices={[0]}
+                data={allergies}
+                keyExtractor={(_allergy, index) => index.toString()}
+                renderItem={({ item }) => (
+                    <Pressable
+                        onPress={() => {
+                            Haptics.impactAsync();
+                            handleToggleItem(item.value);
                         }}
-                    >
-                        <Pressable onPress={goBack}>
-                            <MaterialCommunityIcons
-                                name="chevron-left"
-                                size={32}
-                            />
-                        </Pressable>
-                        <Text>Add Allergies</Text>
-                    </View>
-                );
-            }}
-            data={allergies}
-            stickyHeaderIndices={[0]}
-            keyExtractor={(_allergy, index) => index.toString()}
-            renderItem={({ item }) => (
-                <Pressable
-                    onPress={() => {
-                        Haptics.impactAsync();
-                        handleToggleItem(item.value);
-                    }}
-                    style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        backgroundColor: "white",
-                        gap: 16,
-                        paddingHorizontal: 24,
-                        paddingVertical: 8
-                    }}
-                >
-                    <View
                         style={{
-                            height: 16,
-                            width: 16,
-                            borderRadius: 99,
+                            flexDirection: "row",
                             alignItems: "center",
-                            justifyContent: "center",
                             backgroundColor: "white",
-                            borderColor: "lightgray",
-                            borderWidth: 1
+                            gap: 16,
+                            paddingHorizontal: 24,
+                            paddingVertical: 8
                         }}
                     >
                         <View
                             style={{
-                                height: 10,
-                                width: 10,
+                                height: 16,
+                                width: 16,
                                 borderRadius: 99,
-                                backgroundColor: userAllergies.find(
-                                    (p) => p === item.value
-                                )
-                                    ? "royalblue"
-                                    : "white"
+                                alignItems: "center",
+                                justifyContent: "center",
+                                backgroundColor: "white",
+                                borderColor: "lightgray",
+                                borderWidth: 1
                             }}
-                        />
-                    </View>
-                    <Text style={{ fontSize: 24 }}>{item.icon}</Text>
-                    <Text
-                        style={{
-                            fontSize: 16
-                        }}
-                    >
-                        {item.value}
-                    </Text>
-                </Pressable>
-            )}
-        />
+                        >
+                            <View
+                                style={{
+                                    height: 10,
+                                    width: 10,
+                                    borderRadius: 99,
+                                    backgroundColor: userAllergies.find(
+                                        (p) => p === item.value
+                                    )
+                                        ? "royalblue"
+                                        : "white"
+                                }}
+                            />
+                        </View>
+                        <Text style={{ fontSize: 24 }}>{item.icon}</Text>
+                        <Text
+                            style={{
+                                fontSize: 16
+                            }}
+                        >
+                            {item.value}
+                        </Text>
+                    </Pressable>
+                )}
+            />
+        </View>
     );
 }

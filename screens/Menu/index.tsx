@@ -1,10 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import { Image } from "expo-image";
-import { FlatList, Pressable, Text, View } from "react-native";
+import { Dimensions, FlatList, Pressable, Text, View } from "react-native";
 
 import menusData from "../../data/menus";
 import IMenu from "../../interfaces/Menu";
 import blurHashImage from "../../lib/hashBlurImage";
+import { BlurView } from "expo-blur";
 
 function MenuCard({ item }: { item: IMenu }) {
     const navigation = useNavigation();
@@ -20,7 +21,7 @@ function MenuCard({ item }: { item: IMenu }) {
                 navigation.navigate("MenuSection", { slug: item.slug })
             }
         >
-            <View style={{ paddingHorizontal: 16, marginBottom: 16 }}>
+            <View style={{ paddingHorizontal: 16, marginBottom: 8 }}>
                 <Image
                     source={{ uri: item.image.uri }}
                     placeholder={blurHashImage}
@@ -43,21 +44,29 @@ export default function MenuScreen() {
     return (
         <FlatList
             ListHeaderComponent={() => (
-                <View style={{ marginBottom: 16 }}>
-                    <Text style={{ fontSize: 24, fontWeight: "600" }}>
+                <BlurView
+                    intensity={90}
+                    tint="light"
+                    style={{
+                        height: 64,
+                        width: Dimensions.get("window").width,
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}
+                >
+                    <Text style={{ fontSize: 18, fontWeight: "600" }}>
                         Menu
                     </Text>
-                </View>
+                </BlurView>
             )}
+            style={{ backgroundColor: "white" }}
+            stickyHeaderIndices={[0]}
             numColumns={2}
             data={menusData}
             contentContainerStyle={{
                 alignItems: "center",
-                paddingHorizontal: 8,
-                paddingVertical: 32,
                 width: "100%"
             }}
-            style={{ width: "100%" }}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => {
                 return <MenuCard item={item} />;

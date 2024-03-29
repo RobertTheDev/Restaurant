@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { FlatList, Text, View } from "react-native";
+import { Dimensions, FlatList, Text, View } from "react-native";
 
 import orderData from "../../data/orderData";
 import IOrderItem from "../../interfaces/OrderItem";
@@ -21,9 +21,25 @@ export default function OrdersScreen() {
     return (
         <FlatList
             ListHeaderComponent={() => (
-                <View>
-                    <Text>Orders</Text>
-                    <Text>
+                <View
+                    style={{
+                        backgroundColor: "white",
+                        height: 64,
+                        width: Dimensions.get("window").width,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderBottomColor: "#eee",
+                        borderBottomWidth: 1
+                    }}
+                >
+                    <Text style={{ fontSize: 20, fontWeight: "600" }}>
+                        Orders
+                    </Text>
+                </View>
+            )}
+            ListEmptyComponent={() => (
+                <View style={{ paddingHorizontal: 16, paddingVertical: 24 }}>
+                    <Text style={{ fontSize: 16, fontWeight: "400" }}>
                         All your active and historic orders will appear on this
                         screen.
                     </Text>
