@@ -9,7 +9,8 @@ export default interface ICustomerAddress {
     // Custom fields
     address: string;
     city: string;
-    region: string;
+    name: string | null;
+    region: string | null;
     postalCode: string;
     country: string;
 }
