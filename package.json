@@ -19,6 +19,7 @@
         "@react-navigation/native-stack": "^6.9.26",
         "date-fns": "^3.6.0",
         "expo": "~50.0.14",
+        "expo-blur": "~12.9.2",
         "expo-haptics": "~12.8.1",
         "expo-image": "~1.10.6",
         "expo-status-bar": "~1.11.1",
